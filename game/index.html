@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GHOSTSHIFT — Night Infiltration</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="wrap">
+  <div id="hud">
+    <div class="hud-left">
+      <div id="level-name">LEVEL 1 — WAREHOUSE</div>
+      <div id="level-brief">Slip past the night watch and reach the loading dock.</div>
+    </div>
+    <div class="hud-mid">
+      <div class="hud-row"><span>ALERT</span><span id="alert-label">UNSEEN</span></div>
+      <div class="meter"><div id="alert-meter" class="meter-fill"></div></div>
+      <div class="hud-row small">
+        <span>VIS <b id="vis-state">IN SHADOW</b></span>
+        <span>STANCE <b id="stance-state">WALK</b></span>
+        <span>NOISE <b id="noise-state">QUIET</b></span>
+      </div>
+    </div>
+    <div class="hud-right">
+      <div>INTEL <b id="intel-count">0 / 9</b></div>
+      <div>TIME <b id="timer">0:00</b></div>
+    </div>
+  </div>
+
+  <div id="stage">
+    <canvas id="game" width="1280" height="720"></canvas>
+
+    <div id="overlay-menu" class="overlay">
+      <h1>GHOSTSHIFT</h1>
+      <p class="tag">Night infiltration. Three floors. One ghost.</p>
+      <p class="how">
+        Reach the green EXIT unseen. Guards patrol with vision cones —
+        cross a cone and their suspicion meter fills. Hide behind crates,
+        crouch in bushes, stay out of the lamplight. Sprinting is loud.
+      </p>
+      <p class="controls">
+        <b>WASD / Arrows</b> move &nbsp;·&nbsp; <b>Shift</b> sprint (loud) &nbsp;·&nbsp;
+        <b>C</b> crouch (silent) &nbsp;·&nbsp; <b>Esc</b> pause &nbsp;·&nbsp;
+        <b>R</b> retry &nbsp;·&nbsp; <b>M</b> mute
+      </p>
+      <button id="btn-start">START INFILTRATION</button>
+      <p class="hint">or press Enter</p>
+    </div>
+
+    <div id="overlay-caught" class="overlay hidden">
+      <h1 class="red">CAUGHT</h1>
+      <p class="tag">A guard got their hands on you. The night is not over.</p>
+      <button id="btn-retry">RETRY LEVEL</button>
+      <p class="hint">or press R</p>
+    </div>
+
+    <div id="overlay-clear" class="overlay hidden">
+      <h1 class="green">FLOOR CLEAR</h1>
+      <p class="tag"><span id="clear-level">LEVEL 1</span> — unseen, unheard.</p>
+      <p class="stats">Time <b id="clear-time">0.0s</b> &nbsp;·&nbsp; Intel <b id="clear-intel">0 / 3</b></p>
+      <button id="btn-next">NEXT FLOOR</button>
+      <p class="hint">or press Enter</p>
+    </div>
+
+    <div id="overlay-pause" class="overlay hidden">
+      <h1>PAUSED</h1>
+      <p class="tag">The guards wait for no one. Well — except now.</p>
+      <button id="btn-resume">RESUME</button>
+      <button id="btn-restart" class="secondary">RESTART RUN</button>
+    </div>
+
+    <div id="overlay-win" class="overlay hidden">
+      <h1 id="win-title" class="green">MISSION COMPLETE</h1>
+      <p class="tag">All three floors, one shadow.</p>
+      <p class="stats">Intel <b id="win-intel">0 / 9</b> &nbsp;·&nbsp; Time <b id="win-time">0:00</b> &nbsp;·&nbsp; Spotted <b id="win-spotted">0</b></p>
+      <p class="score">SCORE <b id="win-score">0</b></p>
+      <button id="btn-again">PLAY AGAIN</button>
+      <p class="hint">or press Enter</p>
+    </div>
+  </div>
+
+  <div id="footer">
+    <span>GHOSTSHIFT — an original stealth game. No assets borrowed, no network needed.</span>
+    <span>WASD move · Shift sprint · C crouch · Esc pause</span>
+  </div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
